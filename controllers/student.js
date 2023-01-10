@@ -25,6 +25,16 @@ const createStudent = async (req,res)=>{
     }
 }
 
+const getLogin = async (req,res)=>{
+    try {
+        res.status(200).render('students/login')
+    } catch (error) {
+        res.render('error', {
+            message: error
+        })
+    }
+}
+
 const loginStudent = async (req,res)=>{
     let {matric_no, password} = req.body
     if(matric_no && password){
@@ -59,5 +69,6 @@ const loginStudent = async (req,res)=>{
 
 module.exports = {
     createStudent,
-    loginStudent
+    loginStudent,
+    getLogin
 }
